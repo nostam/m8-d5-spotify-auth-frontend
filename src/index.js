@@ -8,15 +8,9 @@ import { Provider } from "react-redux";
 import configureStore from "./store";
 
 ReactDOM.render(
-  <Auth0Provider
-    domain="dev-9avl7a17.eu.auth0.com"
-    clientId="mAsBMluX3wAs2duuPHpJz808dH2dMmEw"
-    redirectUri={window.location.origin}
-  >
-    <Provider store={configureStore()}>
-      <App />
-    </Provider>
-  </Auth0Provider>,
+  <Provider store={configureStore()}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 
