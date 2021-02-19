@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/login.css";
 import logo from "../assets/logo.png";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
   const url = `${process.env.REACT_APP_API_URL}/users`;
+  const [username, setUsername] = useState("");
+  const [pwd, setPwd] = useState("");
+  async function submitData(e) {
+    e.preventDefault();
+    try {
+      let res = await fetch(`${url}/login`, {
+        method: "POST",
+        body: JSON.stringify({ username, password: pwd }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // cookie
+        SameSite: "none",
+        secure: true,
+      });
+      if (res.ok) {
+        props.history.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       <section className="container-fluid login">
@@ -36,9 +58,18 @@ const Login = () => {
           </div>
           <div className="input-group">
             <span>Email address or Username</span>
-            <input placeholder="Email address or username" />
+            <input
+              placeholder="Email address or username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
             <span>Password</span>
-            <input placeholder="Password" type="password" />
+            <input
+              placeholder="Password"
+              type="password"
+              value={pwd}
+              onChange={(e) => setPwd(e.target.value)}
+            />
           </div>
           <p>
             <a className="forgot-password" href="#">
@@ -57,11 +88,13 @@ const Login = () => {
               </label>
             </div>
 
-            <Link to="/">
-              <div href="#" className="login-button login-spotify">
-                LOG IN
-              </div>
-            </Link>
+            <div
+              href="#"
+              className="login-button login-spotify"
+              onClick={(e) => submitData(e)}
+            >
+              LOG IN
+            </div>
           </div>
           <hr />
           <div className="login-footer">

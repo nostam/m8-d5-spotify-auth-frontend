@@ -62,7 +62,7 @@ function AsideMenu(props) {
 
   useEffect(() => {
     handleLoginStatus();
-  }, [handleLoginStatus]);
+  }, []);
 
   const loginButton = () => {
     if (isNaN(user.id)) {
