@@ -2,6 +2,11 @@
   "name": "react-spotify",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nostam/m8-d5-spotify-auth-frontend.git"
+  },
+  "homepage": "https://github.com/nostam/m8-d5-spotify-auth-frontend#readme",
   "dependencies": {
     "@auth0/auth0-react": "^1.2.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
