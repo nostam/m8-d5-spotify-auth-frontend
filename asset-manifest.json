@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/nostam/m8-d5-spotify-auth-frontendstatic/css/main.8a25be95.chunk.css",
+    "main.js": "/nostam/m8-d5-spotify-auth-frontendstatic/js/main.fe3cf583.chunk.js",
+    "main.js.map": "/nostam/m8-d5-spotify-auth-frontendstatic/js/main.fe3cf583.chunk.js.map",
+    "runtime-main.js": "/nostam/m8-d5-spotify-auth-frontendstatic/js/runtime-main.3b9d5244.js",
+    "runtime-main.js.map": "/nostam/m8-d5-spotify-auth-frontendstatic/js/runtime-main.3b9d5244.js.map",
+    "static/css/2.31ff0196.chunk.css": "/nostam/m8-d5-spotify-auth-frontendstatic/css/2.31ff0196.chunk.css",
+    "static/js/2.707d67c8.chunk.js": "/nostam/m8-d5-spotify-auth-frontendstatic/js/2.707d67c8.chunk.js",
+    "static/js/2.707d67c8.chunk.js.map": "/nostam/m8-d5-spotify-auth-frontendstatic/js/2.707d67c8.chunk.js.map",
+    "static/js/3.6f2ecb5a.chunk.js": "/nostam/m8-d5-spotify-auth-frontendstatic/js/3.6f2ecb5a.chunk.js",
+    "static/js/3.6f2ecb5a.chunk.js.map": "/nostam/m8-d5-spotify-auth-frontendstatic/js/3.6f2ecb5a.chunk.js.map",
+    "index.html": "/nostam/m8-d5-spotify-auth-frontendindex.html",
+    "static/css/2.31ff0196.chunk.css.map": "/nostam/m8-d5-spotify-auth-frontendstatic/css/2.31ff0196.chunk.css.map",
+    "static/css/main.8a25be95.chunk.css.map": "/nostam/m8-d5-spotify-auth-frontendstatic/css/main.8a25be95.chunk.css.map",
+    "static/js/2.707d67c8.chunk.js.LICENSE.txt": "/nostam/m8-d5-spotify-auth-frontendstatic/js/2.707d67c8.chunk.js.LICENSE.txt",
+    "static/media/2020wraped.e56e123e.jpg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/2020wraped.e56e123e.jpg",
+    "static/media/atHome.04f9a9ed.png": "/nostam/m8-d5-spotify-auth-frontendstatic/media/atHome.04f9a9ed.png",
+    "static/media/concerts.4bb8e236.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/concerts.4bb8e236.jpeg",
+    "static/media/decades.c62bb708.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/decades.c62bb708.jpeg",
+    "static/media/discover.0f0bf891.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/discover.0f0bf891.jpeg",
+    "static/media/jazz.a80a2bca.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/jazz.a80a2bca.jpeg",
+    "static/media/logo.b6357c49.png": "/nostam/m8-d5-spotify-auth-frontendstatic/media/logo.b6357c49.png",
+    "static/media/madeForYou.23ebe5d0.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/madeForYou.23ebe5d0.jpeg",
+    "static/media/metal.1234450f.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/metal.1234450f.jpeg",
+    "static/media/mood.a08f2335.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/mood.a08f2335.jpeg",
+    "static/media/newReleases.b09b3197.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/newReleases.b09b3197.jpeg",
+    "static/media/rock-concert.2e3b1112.jpg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/rock-concert.2e3b1112.jpg",
+    "static/media/rock.547f3bc7.jpeg": "/nostam/m8-d5-spotify-auth-frontendstatic/media/rock.547f3bc7.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3b9d5244.js",
+    "static/css/2.31ff0196.chunk.css",
+    "static/js/2.707d67c8.chunk.js",
+    "static/css/main.8a25be95.chunk.css",
+    "static/js/main.fe3cf583.chunk.js"
+  ]
+}
