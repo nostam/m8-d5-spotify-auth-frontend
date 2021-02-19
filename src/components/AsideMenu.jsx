@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useHistory } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -9,55 +9,80 @@ import {
 import "../styles/styles.css";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import createAuthRefreshInterceptor from "axios-auth-refresh";
 
-const mapStateToProps = (state) => state;
-
-const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) =>
+function AsideMenu(props) {
+  // const {
+  //   isLoading,
+  //   isAuthenticated,
+  //   error,
+  //   user,
+  //   loginWithRedirect,
+  //   logout,
+  // } = useAuth0();
+  const { user } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [error, setError] = useState(null);
+  const setUser = (user) =>
     dispatch({
       type: "SET_USER",
-      payload: user,
-    }),
-  unsetUser: (user) =>
-    dispatch({
-      type: "UNSET_USER",
-    }),
-});
-
-const AsideMenu = (props) => {
-  const {
-    isLoading,
-    isAuthenticated,
-    error,
-    user,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
+      payload: {
+        name: user.username,
+        id: user._id,
+        picture: user.image ? user.image : "https://picsum.photos/100",
+      },
+    });
+  const unsetUser = (user) => dispatch({ type: "UNSET_USER" });
+  async function handleLoginStatus(option = "login") {
+    try {
+      const headers = { "Content-Type": "application/json" };
+      const url = process.env.REACT_APP_API_URL;
+      const refreshAuthLogic = (failedRequest) =>
+        axios({
+          url: `${url}/users/refreshToken`,
+          method: "POST",
+          headers,
+          withCredentials: true,
+        }).then((tokenRefreshResponse) => {
+          return Promise.resolve();
+        });
+      createAuthRefreshInterceptor(axios, refreshAuthLogic);
+      console.log(option);
+      const { data } = await axios({
+        method: option === "login" ? "GET" : "POST",
+        url: option === "login" ? `${url}/users/me` : `${url}/users/${option}`,
+        headers,
+        withCredentials: true,
+      });
+      if (option === "login") {
+        setUser(data);
+        console.log(user);
+      } else if (option === "logout") {
+        unsetUser();
+        props.history.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    if (isAuthenticated) {
-      const loginUser = {
-        name: user.nickname,
-        id: user.sub,
-        picture: user.picture,
-      };
-      props.setUser(loginUser);
-    }
-  }, [isAuthenticated]);
+    handleLoginStatus();
+  }, []);
 
   const loginButton = () => {
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
-    if (error) {
-      return <div>Oops... {error.message}</div>;
-    }
-    if (isAuthenticated) {
+    // if (!isNaN(user.id)) {
+    //   return <div>Loading...</div>;
+    // }
+    // if (error) {
+    //   return <div>Oops... {error.message}</div>;
+    // }
+    if (isNaN(user.id)) {
       return (
         <div>
-          Hello {user.nickname}{" "}
+          Hello {user.name}{" "}
           <img
             src={user.picture}
             alt="profile-pic"
@@ -66,8 +91,7 @@ const AsideMenu = (props) => {
           <button
             className="login-button-index mt-3"
             onClick={() => {
-              props.unsetUser();
-              logout({ returnTo: window.location.origin });
+              handleLoginStatus("logout");
             }}
           >
             Logout
@@ -76,7 +100,10 @@ const AsideMenu = (props) => {
       );
     } else {
       return (
-        <button className="login-button-index" onClick={loginWithRedirect}>
+        <button
+          className="login-button-index"
+          onClick={() => props.history.push("/login")}
+        >
           Login
         </button>
       );
@@ -118,7 +145,7 @@ const AsideMenu = (props) => {
         </div>
 
         <div className="stick-to-bottom-index-page">
-          <Link to="/login">
+          {/* <Link to="/login">
             <div className="login-button-index">
               <span>SIGN UP</span>
             </div>
@@ -127,8 +154,8 @@ const AsideMenu = (props) => {
             <div className="login-button-index">
               <span>LOGIN</span>
             </div>
-          </Link>
-          {/* <div>{loginButton()}</div> */}
+          </Link> */}
+          <div>{loginButton()}</div>
           <div className="install-btn">
             <a href="#">
               <FontAwesomeIcon icon={faArrowCircleDown} /> Install
@@ -138,6 +165,6 @@ const AsideMenu = (props) => {
       </div>
     </aside>
   );
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(AsideMenu);
+export default AsideMenu;

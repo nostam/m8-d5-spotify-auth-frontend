@@ -16,9 +16,11 @@ const Login = () => {
         </div>
         <div className="login-container">
           <span> To continue, log in to Spotify.</span>
-          <div className="login-button login-facebook">
-            <span>CONTINUE WITH FACEBOOK</span>
-          </div>
+          <a href={`${url}/facebookLogin`}>
+            <div className="login-button login-facebook">
+              <span>CONTINUE WITH FACEBOOK</span>
+            </div>
+          </a>
           <div className="login-button login-apple">
             <span>CONTINUE WITH APPLE</span>
           </div>
@@ -64,9 +66,11 @@ const Login = () => {
           <hr />
           <div className="login-footer">
             <span>Don't have an account?</span>
-            <div className="login-button login-signup">
-              <span>SIGN UP ON SPOTIFY</span>
-            </div>
+            <a href={`${url}/spotifyLogin`}>
+              <div className="login-button login-signup">
+                <span>CONNECT WITH YOUR SPOTIFY ACCOUNT</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
