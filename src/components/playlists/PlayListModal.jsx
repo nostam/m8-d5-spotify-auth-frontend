@@ -73,9 +73,9 @@ class PlayListModal extends Component {
     let m = Math.floor((d % 3600) / 60);
     let s = Math.floor((d % 3600) % 60);
 
-    let hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
-    let mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
-    let sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    let hDisplay = h > 0 ? h + (h === 1 ? " hour " : " hours ") : "";
+    let mDisplay = m > 0 ? m + (m === 1 ? " minute " : " minutes ") : "";
+    let sDisplay = s > 0 ? s + (s === 1 ? " second" : " seconds") : "";
     return " " + hDisplay + mDisplay + sDisplay;
   };
 
@@ -170,6 +170,7 @@ class PlayListModal extends Component {
                         </td>
                         <td style={{ verticalAlign: "middle" }}>
                           <img
+                            alt=""
                             src="https://img.icons8.com/ios/15/b3b3b3/like.png"
                             className="track-heart"
                           />
@@ -177,6 +178,7 @@ class PlayListModal extends Component {
                             {this.toMinutes(track.duration)}
                           </p>
                           <img
+                            alt=""
                             src="https://img.icons8.com/material/15/b3b3b3/more--v1.png"
                             className="track-dots"
                           />

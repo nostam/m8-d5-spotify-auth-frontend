@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useHistory } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -14,17 +14,9 @@ import axios from "axios";
 import createAuthRefreshInterceptor from "axios-auth-refresh";
 
 function AsideMenu(props) {
-  // const {
-  //   isLoading,
-  //   isAuthenticated,
-  //   error,
-  //   user,
-  //   loginWithRedirect,
-  //   logout,
-  // } = useAuth0();
   const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const setUser = (user) =>
     dispatch({
       type: "SET_USER",
@@ -70,15 +62,9 @@ function AsideMenu(props) {
 
   useEffect(() => {
     handleLoginStatus();
-  }, []);
+  }, [handleLoginStatus]);
 
   const loginButton = () => {
-    // if (!isNaN(user.id)) {
-    //   return <div>Loading...</div>;
-    // }
-    // if (error) {
-    //   return <div>Oops... {error.message}</div>;
-    // }
     if (isNaN(user.id)) {
       return (
         <div>

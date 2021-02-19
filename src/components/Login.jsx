@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/login.css";
 import logo from "../assets/logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
       <section className="container-fluid login">
         <div className="login-logo">
           <Link to="/">
-            <img src={logo} />
+            <img src={logo} alt="logo" />
           </Link>
         </div>
         <div className="login-container">

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { connect } from "react-redux";
 import {
-  faHeart,
   faChalkboard,
   faRandom,
   faStepBackward,
@@ -16,7 +15,7 @@ import {
   faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import "../styles/styles.css";
-import imgPlaceholder from "../assets/bohemian-rhapsody.jpg";
+// import imgPlaceholder from "../assets/bohemian-rhapsody.jpg";
 
 const mapStateToProps = (state) => state;
 
@@ -71,6 +70,7 @@ class Player extends React.Component {
           <div className="player-albumart d-flex align-items-center justify-content-start">
             <div className="nowplaying-albumart mx-3">
               <img
+                alt=""
                 src={
                   this.props.nowPlaying.cover_small
                     ? this.props.nowPlaying.cover_small
