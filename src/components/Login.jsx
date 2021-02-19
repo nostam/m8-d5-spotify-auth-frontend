@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const url = `${process.env.REACT_APP_API_URL}/users`;
   return (
     <>
       <section className="container-fluid login">
         <div className="login-logo">
-          <Link to='/'>
+          <Link to="/">
             <img src={logo} />
           </Link>
         </div>
@@ -21,9 +22,11 @@ const Login = () => {
           <div className="login-button login-apple">
             <span>CONTINUE WITH APPLE</span>
           </div>
-          <div className="login-button login-google">
-            <span>CONTINUE WITH GOOGLE</span>
-          </div>
+          <a href={`${url}/googleLogin`}>
+            <div className="login-button login-google">
+              <span>CONTINUE WITH GOOGLE</span>
+            </div>
+          </a>
           <div className="d-flex flex-row">
             <hr />
             OR
@@ -53,9 +56,9 @@ const Login = () => {
             </div>
 
             <Link to="/">
-            <div href="#" className="login-button login-spotify">
-              LOG IN
-            </div>
+              <div href="#" className="login-button login-spotify">
+                LOG IN
+              </div>
             </Link>
           </div>
           <hr />
