@@ -6,6 +6,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { Nav, NavDropdown } from "react-bootstrap";
 import { ColorExtractor } from "react-color-extractor";
 import { connect } from "react-redux";
+import axios from 'axios';
 
 const mapStateToProps = (state) => state;
 
@@ -20,7 +21,21 @@ class AlbumHeader extends Component {
     this.fetchAlbum(this.props.albumId);
   };
 
-  fetchAlbum = (id) => {
+  fetchAlbum = async(id) => {
+    // try {
+    //   const res = await axios.get(
+    //     `${process.env.REACT_APP_API_URL}/fetch/album/${id}`
+    //   );
+    //   if (res.status == 200) {
+    //     this.setState({album: res, loading: false})
+    //     return await res.data; 
+    //   } else {
+    //     return 'something went wrong'
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // } 
+
     fetch(
       "https://deezerdevs-deezer.p.rapidapi.com/album/" + id,
       {

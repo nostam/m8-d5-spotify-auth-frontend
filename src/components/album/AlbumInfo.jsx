@@ -3,11 +3,12 @@ import "../../styles/albums.css";
 import { Spinner, Row, Col } from "react-bootstrap";
 import { ColorExtractor } from "react-color-extractor";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 class AlbumInfo extends Component {
   state = {
     album: "",
-    loading: "true",
+    loading: "false",
     colors: [],
   };
 
@@ -15,7 +16,22 @@ class AlbumInfo extends Component {
     this.fetchAlbum(this.props.albumId);
   };
 
-  fetchAlbum = (id) => {
+  fetchAlbum = async(id) => {
+    // try {
+    //   const res = await axios.get(
+    //     `${process.env.REACT_APP_API_URL}/fetch/album/${id}`
+    //   );
+    //   console.log('res:::', res)
+    //   if (res.status == 200) {
+    //     this.setState({album: res, loading: false})
+    //     return await res.data; 
+    //   } else {
+    //     return 'something went wrong'
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // } 
+
     fetch(
       "https://deezerdevs-deezer.p.rapidapi.com/album/" + id,
       {
